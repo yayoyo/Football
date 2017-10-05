@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    DrawBoardVC * vc = [[DrawBoardVC alloc]init];
-    [self presentViewController:vc animated:YES completion:^{
-        NSLog(@"展示PANTwoViewController完毕.......");
-    }];
+//    DrawBoardVC * vc = [[DrawBoardVC alloc]init];
+//    [self presentViewController:vc animated:YES completion:^{
+//        NSLog(@"展示PANTwoViewController完毕.......");
+//    }];
 
 }
 
