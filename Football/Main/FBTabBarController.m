@@ -1,0 +1,50 @@
+//
+//  FBTabBarController.m
+//  Football
+//
+//  Created by Apple on 2017/9/16.
+//  Copyright © 2017年 tiantuo. All rights reserved.
+//
+
+#import "FBTabBarController.h"
+#import "FBNavigationController.h"
+@interface FBTabBarController ()
+
+@end
+
+@implementation FBTabBarController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+- (void)addChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage{
+    childVc.title = title;
+    childVc.tabBarItem.image = IMG(image);
+    childVc.tabBarItem.selectedImage = [IMG(selectedImage) imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+  //设置文字样式
+    NSMutableDictionary * textAttrs = [NSMutableDictionary dictionary];
+    textAttrs[NSForegroundColorAttributeName] = [UIColor colorWithHexString:@"666666"];
+    [childVc.tabBarItem setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    NSMutableDictionary *selectTextAttrs = [NSMutableDictionary dictionary];
+    selectTextAttrs[NSForegroundColorAttributeName] = [UIColor colorWithHexString:@"fe0202"];
+   [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
+    FBNavigationController * nav = [[FBNavigationController alloc]initWithRootViewController:childVc ];
+    [self addChildViewController:nav];
+}
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
