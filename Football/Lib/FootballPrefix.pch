@@ -23,14 +23,26 @@
 //颜色的RGB
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 //tabbar 高度
-#define TabBar_Height   49
-#define NavBar_Height   44
-#define StateBar_Height 20
+//#define TabBar_Height   49
+//#define NavBar_Height   44
+//#define StateBar_Height 20
 // 图片名字
 #define IMG(name)       [UIImage imageNamed:name]
 //屏幕宽的比例尺
 #define Screen_ScaleW      [[UIScreen mainScreen] bounds].size.width/375.0f
+// 判断是否是iPhone X
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+// 状态栏高度
+#define STATUS_BAR_HEIGHT (iPhoneX ? 44.f : 20.f)
+// 导航栏高度
+#define NAVIGATION_BAR_HEIGHT (iPhoneX ? 88.f : 64.f)
+// tabBar高度
+#define TAB_BAR_HEIGHT (iPhoneX ? (49.f+34.f) : 49.f)
+// home indicator
+#define HOME_INDICATOR_HEIGHT (iPhoneX ? 34.f : 0.f)
 
+#define ImageUrlStr(str) [NSURL URLWithString:[NSString stringWithFormat:@"%@",str]]
 #import "FootballHeader.h"
+
 
 #endif /* FootballPrefix_pch */

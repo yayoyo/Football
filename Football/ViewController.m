@@ -21,7 +21,14 @@
 //    [self presentViewController:vc animated:YES completion:^{
 //        NSLog(@"展示PANTwoViewController完毕.......");
 //    }];
-
+    UIView * testview = [[UIView alloc]init];
+    [self.view addSubview:testview];
+    testview.backgroundColor = [UIColor redColor];
+    [testview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.height.equalTo(@100);
+    }];
+    
 }
 
 
