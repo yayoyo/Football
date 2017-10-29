@@ -10,7 +10,9 @@
 #import "FBNavigationController.h"
 
 @interface FBTabBarController ()
-
+{
+    BOOL __shouldAutorotate;
+}
 @end
 
 @implementation FBTabBarController
@@ -44,20 +46,25 @@
    [childVc.tabBarItem setTitleTextAttributes:selectTextAttrs forState:UIControlStateSelected];
     FBNavigationController * nav = [[FBNavigationController alloc]initWithRootViewController:childVc ];
     [self addChildViewController:nav];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - - orientation
+// 是否支持转屏
+- (BOOL)shouldAutorotate
+{
+    return [self.selectedViewController shouldAutorotate];
 }
-*/
+// 返回nav栈中的最后一个对象支持的旋转方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return [self.selectedViewController supportedInterfaceOrientations];
+}
+// 返回nav栈中最后一个对象,坚持旋转的方向
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return [self.selectedViewController preferredInterfaceOrientationForPresentation];
+}
 
 @end

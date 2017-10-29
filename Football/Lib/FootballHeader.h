@@ -8,8 +8,10 @@
 
 #ifndef FootballHeader_h
 #define FootballHeader_h
-
-
+#import "TZImagePickerController.h"
+#import "WRNavigationBar.h"
+#import "AppDelegate.h"
+#import "FBNavigationController.h"
 //
 #import "UIView+Extension.h"
 //引导页
@@ -39,6 +41,8 @@
 #import "UIButton+WebCache.h"
 //下拉刷新
 #import "MJRefresh.h"
+// 键盘的回收
+#import "IQKeyboardManager.h"
 //首页
 #import "HomeViewController.h"
 //商城

@@ -132,7 +132,13 @@
     // 状态取反
     shareBtn.selected = !shareBtn.isSelected;
 }
+-(UIStatusBarStyle)preferredStatusBarStyle
 
+{
+    
+    return UIStatusBarStyleLightContent;
+    
+}
 - (void)startClick
 {
     // 切换到HWTabBarController

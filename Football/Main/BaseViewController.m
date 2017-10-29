@@ -18,12 +18,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self getNetInfo];
-    
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+ 
 }
 -(void)creatLeftItem:(NSString *)title normalImage:(NSString *)ImgName selectImage:(NSString *)selectImgName{
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 44, 44);
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn setTitle:title forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:ImgName] forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
@@ -35,7 +36,7 @@
 -(void)creatRightItem:(NSString *)title normalImage:(NSString *)ImgName selectImage:(NSString *)selectImgName{
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 44, 44);
-    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     [btn setTitle:title forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
     [btn setImage:IMG(ImgName) forState:UIControlStateNormal];
@@ -82,6 +83,13 @@
     };
     
     [reach startNotifier];
+}
+-(UIStatusBarStyle)preferredStatusBarStyle
+
+{
+
+    return UIStatusBarStyleLightContent;
+
 }
 /*
 #pragma mark - Navigation

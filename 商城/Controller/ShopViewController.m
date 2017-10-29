@@ -8,7 +8,10 @@
 
 #import "ShopViewController.h"
 
-@interface ShopViewController ()
+@interface ShopViewController ()<TZImagePickerControllerDelegate>
+{
+    TZImagePickerController *imagePickerVc;
+}
 
 @end
 
@@ -17,8 +20,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, 44, 44);
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn setTitle:@"1" forState:UIControlStateNormal];
+    btn.titleLabel.font = [UIFont systemFontOfSize:14];
+  
+    UIBarButtonItem * BBI = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    [btn addTarget:self action:@selector(rightClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = BBI;
+     
 }
 
+-(void)rightClick:(UIButton *)btn{
+    NSLog(@"111");
+   TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:9 columnNumber:3 delegate:self pushPhotoPickerVc:YES];
+    imagePickerVc.naviBgColor = [UIColor whiteColor];
+    // You can get the photos by block, the same as by delegate.
+    // 你可以通过block或者代理，来得到用户选择的照片.
+    [imagePickerVc setDidFinishPickingPhotosWithInfosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto, NSArray<NSDictionary *> *infos) {
+        
+    }];
+    [self presentViewController:imagePickerVc animated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
